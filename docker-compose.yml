@@ -1,10 +1,8 @@
-version: '3.3'
+version: '2'
 
 services:
   app:
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    build: .
     container_name: crud-app
     ports:
       - "3000:3000"
@@ -18,8 +16,7 @@ services:
       - DB_NAME=crud_db
       - DB_PORT=3306
     volumes:
-      - ./:/app
-      - /app/node_modules
+      - .:/app
     restart: unless-stopped
 
   db:
